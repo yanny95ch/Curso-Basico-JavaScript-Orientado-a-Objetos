@@ -6,3 +6,4 @@ function Student(){
 const juanita = new Student();
 
 console.log(juanita);// Student { name: 'Nombre', age: 18, point: 760 } : 'Student' nos indica que el objeto juanita es una instancia frl prototipo Student
+
