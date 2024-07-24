@@ -1,5 +1,4 @@
 //--------------Objeto Literal---------------------//
-
 const natalia =  {
     name: 'Natalia',
     age: 20,
@@ -11,9 +10,7 @@ const natalia =  {
         this.cursosAprobados.push(nuevoCursito);
     }
 };
-
 //Hacer que Natalia apruebe un curso
-
 //natalia.cursosAprobados.push('Curso de Responsive Disign');
 natalia.name = 'Lulito'
 
@@ -41,3 +38,32 @@ const juanita = new Student(
         'Curso culinario 2'
     ]
 )
+//--------------------------
+
+//------------Prototipos con la Sintaxis  de Clases-------- //
+
+class Student2 {
+    constructor ({
+        name, 
+        age, 
+        cursosAprobados=[], 
+        email,
+        }){
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.cursosAprobados= cursosAprobados;
+    }
+    aprobarcurso (nuevoCursito){
+        this.cursosAprobados.push(nuevoCursito);
+    }
+}
+
+
+
+const Lulito2 = new Student2({
+    age: 3 ,
+    email: 'lulito64@gmail.com',
+    name: 'Lulito3',
+}
+);
