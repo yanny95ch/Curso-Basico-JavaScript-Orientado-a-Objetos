@@ -26,13 +26,21 @@ const juan2 = new Student({
     name: 'Lulupachon',
     username: 'lulopach',
     email:'pachoncito98@outlook.com',
-    twtter: 'tpachon'
+    twtter: 'tpachon',
+    learingPaths:[
+        escuelaIdiomas,
+        escuelaNegocios,
+    ],
 })
 const juan5 = new Student({
     name: 'Lulupaz',
     username: 'lulopaz',
     email:'lupaz98@outlook.com',
-    instagram: 'tpachon88'
+    instagram: 'tpachon88',
+    learingPaths:[
+        escuelaNegocios,
+        escuelaCocina
+    ],
 })
 
 
@@ -51,7 +59,7 @@ const cursoBienvenida = new Courses({
     name : 'Courso Gratis de Bienvenida',
 });
 const cursoDefinitivoIdiomas = new Courses({
-    name : 'Curso Definitivo de Fundamentos de Negocios',
+    name : 'Curso Practico en Idiomas',
 });
 const cursoPracticoCpcina = new Courses({
     name : 'Curso Definitivo de Fundamentos de Negocios',
@@ -71,7 +79,7 @@ class LearningPaths {
 const escuelaNegocios = new LearningPaths ({
     name: 'Escuela de  Negocios',
     courses:[
-        'Curso Bienvenida',
+        cursoBienvenida,
         'Curso de Fundamentos de Negocios',
         'Curso de Fundamentos en Finanzas',
         'Curso Ofimatica'
@@ -80,7 +88,8 @@ const escuelaNegocios = new LearningPaths ({
 const escuelaCocina= new LearningPaths ({
     name: 'Escuela de Cocina',
     courses:[
-        'Curso Bienvenida',
+        cursoBienvenida,
+        cursoPracticoCpcina,
         'Curso de Reposteria Avanzado',
         'Curso Pato a la Naranja',
         'Curso Chef Basico'
@@ -89,7 +98,8 @@ const escuelaCocina= new LearningPaths ({
 const escuelaIdiomas = new LearningPaths ({
     name: 'Escula de Idiomas',
     courses:[
-        'Curso Bienvenida',
+        cursoBienvenida,
+        cursoDefinitivoIdiomas ,
         'Curso Aleman Basico',
         'Curso Mandarin Basico',
         'Curso de ChinoMandarin'
