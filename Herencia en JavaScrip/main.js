@@ -1,35 +1,14 @@
-function videoPlay(id){
-    const urlSecreta = 'https://www.youtube.com/watch?v=cMFHUTJ13Ys&list=RD0P0aQreFs8w&index=27' + id;
-    console.log('SE esta reproduciendo desde la url :') + urlSecreta;
-}
-function videoStop(id){
-    const urlSecreta = 'https://www.youtube.com/watch?v=cMFHUTJ13Ys&list=RD0P0aQreFs8w&index=27' + id;
-    console.log('Pausamos la url :') + urlSecreta;
-}
-class PlatziClass{
-    constructor({
-        name,
-        videID,
-    }){
-        this.name = name;
-        this.videID = videID;
-    }
-
-    reproducir(){
-        videoPlay(this.videID);
-    }
-    pausar(){
-        videoStop(this.videID);s
-    }
-}
-
 class Courses {
     constructor({
         name , 
         clases =[],
+        isFree= false,
+        lang = 'Spanish',
     }){
         this._name = name;
         this.clases = clases;
+        this.isFree = isFree;
+        this.lang = lang
 
     }
 
@@ -57,6 +36,7 @@ class Courses {
 
 const cursoBienvenida = new Courses({
     name : 'Curso Gratis de Bienvenida',
+    isFree: true,
 });
 
 cursoBienvenida.name = ''
@@ -67,10 +47,12 @@ cursoBienvenida.name = ''
 
 const cursoDefinitivoIdiomas = new Courses({
     name : 'Curso Practico en Idiomas',
+    lang: 'english',
 });
 const cursoPracticoCpcina = new Courses({
     name : 'Curso Definitivo de Fundamentos de Negocios',
 });
+
 
 
 class LearningPaths {
@@ -102,7 +84,7 @@ const escuelaCocina= new LearningPaths ({
         'Curso Chef Basico'
     ]
 });
-const escuelaIdiomas = new LearningPaths ({
+const escuelaIdiomas= new LearningPaths ({
     name: 'Escula de Idiomas',
     courses:[
         cursoBienvenida,
@@ -138,7 +120,52 @@ class Student {
     };
 }
 
-const juan2 = new Student({
+class FreeStudents  extends Student{
+    constructor(props){
+        super(props)
+    }
+    approvedCourse(newCourse){
+        if(newCourse.isFree){
+            this.approvedCourses.push(newCourse);
+        }else{
+            console.log('Lo siento:'+ this.name  + 'Solo puedes tomar cursos abiertos');
+        }
+    }
+}
+
+class BasicStidents extends Student{
+    constructor(props){
+        super(props)
+    }
+    approvedCourse(newCourse){
+        if(newCourse.lang !== 'english'){
+            this.approvedCourses.push(newCourse);
+        }else{
+            console.log('Lo siento:'+ this.name  + 'NO puedes tomar cursos en ingles');
+        }
+    }
+
+}
+
+class ExpertStudents extends Student{
+    constructor(props){
+        super(props)
+    }
+    approvedCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+}
+
+
+    
+
+
+
+
+
+
+
+const juan2 = new FreeStudents({
     name: 'Lulupachon',
     username: 'lulopach',
     email:'pachoncito98@outlook.com',
@@ -148,7 +175,7 @@ const juan2 = new Student({
         escuelaNegocios,
     ],
 })
-const juan5 = new Student({
+const juan5 = new BasicStidents({
     name: 'Lulupaz',
     username: 'lulopaz',
     email:'lupaz98@outlook.com',
