@@ -2,10 +2,12 @@
 const natalia =  {
     name: 'Natalia',
     age: 20,
-    cursosAprovados: [
+    cursosAprobados: [
         'Curso definitivo de HTML y CSS',
         'Curso Practico de HTML y CSS'
     ],
+
+    //Metodo aprobarCurso
     aprobarcurso (nuevoCursito) {
         this.cursosAprobados.push(nuevoCursito);
     }
@@ -30,7 +32,7 @@ Student.prototype.aprobarcurso = function(nuevoCursito){
     this.cursosAprobados.push(nuevoCursito);
 }
 const juanita = new Student(
-    'Lulito Valeroso',
+    'Lulito Valeroso', 
     3,
     [
         'Curso de Creacion de videojuegos',
