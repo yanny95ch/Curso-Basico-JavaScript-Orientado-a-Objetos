@@ -1,3 +1,27 @@
+
+class Comment {
+    constructor({
+        content,
+        studentName,
+        studentRole = 'estudiante',
+    }){
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0;
+    }
+
+    publicar(){
+        //juan2 (estudiante)
+        console.log(this.studentName + '(' + this.studentRole + ')');
+        //0 likes
+        console.log(this.likes +  'likes');
+        //Me encanto el curso!
+        console.log(this.content);
+    }
+}
+
+
 class Courses {
     constructor({
         name , 
@@ -118,7 +142,17 @@ class Student {
         this.approvedCourses= [] = approvedCourses;
         this.learingPaths=[] = learingPaths;
     };
+
+    publicarComentario(commentContent){
+        const comment  = new Comment({
+            content: commentContent, 
+            studentName: this.name
+        });
+        comment.publicar();
+    }
 }
+
+
 
 class FreeStudents  extends Student{
     constructor(props){
@@ -156,14 +190,36 @@ class ExpertStudents extends Student{
     }
 }
 
+class TeacherStudent extends Student{
+    constructor(props){
+        super(props)
+    }
+    approvedCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+    publicarComentario(commentContent){
+        const comment  = new Comment({
+            content: commentContent, 
+            studentName: this.name,
+            studentRole: 'Profesor',
+        });
+        comment.publicar();
+    }
+
+
+}
+
 
     
 
+const freddy = new TeacherStudent({
+    name: 'Fredy Vega',
+    username: 'freddier',
+    email:'freddier@outlook.com',
+    twtter: 'tfreddier',
+    instagram: 'ifreddier',
 
-
-
-
-
+})
 
 const juan2 = new FreeStudents({
     name: 'Lulupachon',
