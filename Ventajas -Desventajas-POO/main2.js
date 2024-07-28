@@ -133,8 +133,8 @@ class Student {
             instagram,
             facebook,
         }
-        this.approvedCourses= [] = approvedCourses;
-        this.learingPaths=[] = learingPaths;
+        this.approvedCourses = approvedCourses;
+        this.learingPaths = learingPaths;
     };
 }
 
